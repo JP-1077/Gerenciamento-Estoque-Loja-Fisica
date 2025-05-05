@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .card-produto {
+        background-color: #E7ECEF;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+    }
+
+    .card-produto h2 {
+        color: #274C77;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-label {
+        color: #274C77;
+        font-weight: bold;
+    }
+
+    .info-value {
+        color: #1b1b1b;
+    }
+
+    .btn-custom {
+        background-color: #86ABC3;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .btn-custom:hover {
+        background-color: #6096BA;
+        color: white;
+    }
+
+    .action-buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+</style>
+
+<div class="container py-5">
+    <div class="card-produto">
+        <h2>
+            Detalhes do Produto
+            <i class="bi bi-box-seam-fill" style="color: #A3C4DC;"></i>
+        </h2>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <p><span class="info-label">ID:</span> <span class="info-value">{{ produto.id }}</span></p>
+                <p><span class="info-label">Nome:</span> <span class="info-value">{{ produto.nome }}</span></p>
+                <p><span class="info-label">Código:</span> <span class="info-value">{{ produto.codigo }}</span></p>
+                <p><span class="info-label">Categoria:</span> <span class="info-value">{{ produto.categoria_id.nome }}</span></p>
+            </div>
+            <div class="col-md-6">
+                <p><span class="info-label">Quantidade:</span> <span class="info-value">{{ produto.quantidade }}</span></p>
+                <p><span class="info-label">Preço de Compra:</span> <span class="info-value">R$ {{ produto.preco_compra }}</span></p>
+                <p><span class="info-label">Preço de Venda:</span> <span class="info-value">R$ {{ produto.preco_venda }}</span></p>
+                <p><span class="info-label">Descrição:</span> <span class="info-value">{{ produto.descricao }}</span></p>
+            </div>
+        </div>
+
+        <div class="action-buttons d-flex justify-content-center">
+            <a href="{% url 'produto_update' produto.id %}" class="btn-custom d-flex align-items-center">
+                <i class="bi bi-pencil-fill me-2"></i> Editar
+            </a>
+            <a href="{% url 'produto_lista' %}" class="btn-custom d-flex align-items-center">
+                <i class="bi bi-arrow-left me-2"></i> Voltar
+            </a>
+        </div>        
+    </div>
+</div>
+{% endblock %}

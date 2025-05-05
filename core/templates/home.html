@@ -1,0 +1,141 @@
+<!-- templates/home.html -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .carousel-control-prev {
+    left: -50px; /* ou -2rem, ajuste conforme necessário */
+  }
+
+  .carousel-control-next {
+    right: -50px;
+  }
+
+  @media (max-width: 768px) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none; /* Esconde em telas pequenas, se necessário */
+    }
+  }
+</style>
+
+</style>
+<div class="container text-center py-5" style="background-color: #E7ECEF;">
+    <h2 class="fw-bold text-azul-escuro">Seja bem-vindo ao Estoque Fácil</h2>
+    <p style=color:#6096BA;" class="w-75 mx-auto">
+        Tenha o controle total do seu estoque, pedidos e vendas em um só lugar.
+        O Estoque Fácil foi desenvolvido para facilitar a gestão do seu empreendimento.
+    </p>
+</div>
+
+<div class="container py-5" style="background-color: #E7ECEF;">
+    <h3 class="text-center fw-bold mb-4" style="color: #274C77;">Objetivo</h3>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <img src="{% static 'img/controle.png' %}" alt="Controle" width="100">
+            <p class="fw-semibold mt-2">Otimizar o controle de estoque</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'img/gestão.png' %}" alt="Gestão" width="100">
+            <p class="fw-semibold mt-2">Facilitar a gestão de pedidos e produtos</p>
+        </div>
+        <div class="col-md-4">
+            <img src="{% static 'img/amico.png' %}" alt="Decisão" width="100">
+            <p class="fw-semibold mt-2">Apoiar a tomada de decisões</p>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5" style="background-color: #E7ECEF;">
+    <h3 class="text-center fw-bold mb-4" style="color: #274C77;">Funcionalidades</h3>
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/cadastro.png' %}" width="50">
+                <h5 class="fw-bold mt-2">Cadastro de Produtos</h5>
+                <p style="color: #6096BA;"> Permite cadastrar, editar e visualizar produtos com controle de estoque, categorias e preços — facilitando a organização e o acompanhamento do inventário.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/caixa.png' %}" width="50">
+                <h5 class="fw-bold mt-2">Controle de Estoque</h5>
+                <p style="color: #6096BA;"> Atualiza o estoque em tempo real e emite alertas para produtos com quantidade baixa, ajudando a evitar rupturas e perdas nas vendas.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/pedidos.png' %}" width="50">
+                <h5 class="fw-bold mt-2">Registro de Pedidos</h5>
+                <p style="color: #6096BA;"> Possibilita realizar pedidos com múltiplos itens, calcular o valor total automaticamente e atualizar o estoque, tornando o processo de venda mais ágil e preciso.</p>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/dash.png' %}" width="50">
+                <h5 class="fw-bold mt-2">Dashboard</h5>
+                <p style="color: #6096BA;"> Gera insights sobre vendas, produtos mais vendidos e lucros — auxiliando na tomada de decisões estratégicas para o negócio.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container py-5" style="background-color: #E7ECEF;">
+    <!-- Título -->
+    <h3 class="text-center fw-bold mb-4" style="color: #274C77;">
+      Para quem é este sistema?
+    </h3>
+  
+    <div id="carouselPublicoAlvo" class="carousel slide w-75 mx-auto mb-4" data-bs-ride="carousel">
+      <div class="carousel-inner text-center">
+        <div class="carousel-item active">
+          <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+            👩‍💼 <strong>Pequenas e médias empresas</strong> que desejam mais controle e organização nas operações do dia a dia.
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+            📊 <strong>Gestores e donos de negócios</strong> que precisam acompanhar estoque, pedidos e desempenho dos produtos.
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+            💼 <strong>Equipes de vendas e logística</strong> que buscam agilidade e precisão no registro e acompanhamento de pedidos.
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+            🚀 <strong>Startups e comércios locais</strong> que estão estruturando seus processos com soluções simples e eficazes.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Setas -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide="next">
+        <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+        <span class="visually-hidden">Próximo</span>
+      </button>
+  
+      <!-- Indicadores -->
+      <div class="carousel-indicators mt-3">
+        <button type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#carouselPublicoAlvo" data-bs-slide-to="3"></button>
+      </div>
+    </div>
+  </div>
+{% endblock %}

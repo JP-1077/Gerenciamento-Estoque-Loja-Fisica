@@ -1,0 +1,115 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Estoque Fácil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #d9e2e7;
+        }
+
+        .hero-container {
+            min-height: 100vh;
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-box {
+            background-color: #d9e2e7;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 1000px;
+            min-height: 500px; /* aumenta a altura do bloco */
+        }
+
+        .hero-text {
+            flex: 1;
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            color: #274C77;
+            font-weight: 700;
+        }
+
+        .hero-text p {
+            color: #1b1b1b;
+            font-size: 1.25rem;
+            margin: 1rem 0 2rem;
+        }
+
+        .hero-text a {
+            background-color: #A3C4DC;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .hero-text a:hover {
+            background-color: #8fb6d2;
+        }
+
+        .hero-image {
+            flex: 1;
+            background-color: #2C4976;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .signature {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .hero-box {
+                flex-direction: column;
+            }
+
+            .hero-image {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-container">
+        <div class="hero-box">
+            <div class="hero-text">
+                <h1>ESTOQUE FÁCIL</h1>
+                <p>Um controle inteligente e eficiente do seu estoque, em tempo real</p>
+                <a href="{% url 'home' %}">Acessar serviços</a>
+            </div>
+            <div class="hero-image">
+                <img src="{% static 'img/capa.png' %}" alt="Ilustração Estoque Fácil">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+    .card-produto {
+        background-color: #E7ECEF;
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+    }
+
+    .card-produto h2 {
+        color: #274C77;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+    }
+
+    .info-label {
+        color: #274C77;
+        font-weight: bold;
+    }
+
+    .info-value {
+        color: #1b1b1b;
+    }
+
+    .btn-custom {
+        background-color: #86ABC3;
+        color: white;
+        padding: 0.5rem 1.5rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: 0.2s;
+    }
+
+    .btn-custom:hover {
+        background-color: #6096BA;
+        color: white;
+    }
+
+    .action-buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+</style>
+
+<div class="container py-5">
+    <div class="card-produto">
+        <h2>
+            Detalhes do Pedido
+            <i class="bi bi-box-seam-fill" style="color: #A3C4DC;"></i>
+        </h2>
+
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <p><span class="info-label">Cliente:</span> <span class="info-value">{{ pedido.nome_cliente }}</span></p>
+                <p><span class="info-label">Data da Compra:</span> <span class="info-value">{{ pedido.data_pedido }}</span></p>
+                <p><span class="info-label">Forma de Pagamento:</span> <span class="info-value">{{ pedido.forma_pagamento }}</span></p>
+                <p><span class="info-label">Valor Total da Compra:</span> <span class="info-value">{{ pedido.valor_compra }}</span></p>
+            </div>
+
+            <div class="col-md-6">
+                <h5><strong>Itens Solicitados</strong></h5>
+                <ul>
+                    {% for item in pedido.itens.all %}
+                        <li>
+                            {{ item.quantidade }} x {{ item.produto.nome }} — R$ {{ item.subtotal }}
+                        </li>
+                    {% empty %}
+                        <li>Esse pedido não possui itens.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="action-buttons d-flex justify-content-center">
+                <a href="{% url 'lista_pedidos' %}" class="btn-custom d-flex align-items-center">
+                    <i class="bi bi-arrow-left me-2"></i> Voltar
+                </a>
+            </div>      
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

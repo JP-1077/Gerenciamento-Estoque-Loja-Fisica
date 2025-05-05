@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<div class="container my-5 p-4 rounded" style="background-color: #E7ECEF;">
+    <div class="row align-items-center">
+        <!-- Texto -->
+        <div class="col-md-7">
+            <h3 class="fw-bold text-azul-escuro" style="color: #274C77;">
+                Objetivo🎯
+            </h3>
+            <p class="mt-2" style="color: #6096BA;">
+                Aqui você pode visualizar, registrar e acompanhar todos os pedidos realizados no sistema. 
+                O objetivo é garantir uma gestão clara e eficiente do fluxo de vendas. Desta forma, podemos registrar novos pedidos de forma dinâmica, incluindo múltiplos produtos, quantidades e forma de pagamento. O sistema calcula automaticamente o valor total e ajusta o estoque em tempo real.
+            </p>
+        </div>
+  
+        <div class="col-md-5 text-center">
+          <img src="{% static 'img/planejamento.png' %}" alt="Objetivo" class="img-fluid" style="width: 60%;">
+      </div>
+    </div>
+  </div>
+
+  <div class="container py-5" style="background-color: #E7ECEF;">
+    <h3 class="text-center fw-bold mb-4" style="color: #274C77;"> 
+      Benefícios do Cadastro de Pedidos
+    </h3>
+  </div>
+    <div class="row text-center">
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/erro.gif' %}" width="60">
+                <h5 class="fw-bold mt-2">Redução de erros no estoque</h5>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/atendimento.gif' %}" width="60">
+                <h5 class="fw-bold mt-2">Facilita o atendimento e histórico de clientes</h5>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/analise.gif' %}" width="60">
+                <h5 class="fw-bold mt-2">Base sólida para análise e acompanhamento</h5>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="p-4 rounded w-100 h-100" style="background-color: #D4E2EB;">
+                <img src="{% static 'img/conversa.gif' %}" width="65">
+                <h5 class="fw-bold mt-2">Comunicação entre cliente e vendedor de forma mais acertiva</h5>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <div class="container py-5" style="background-color: #E7ECEF;">
+    <!-- Título -->
+    <h3 class="text-center fw-bold mb-4" style="color: #274C77;"> 
+      Seção de dicas auxiliares
+    </h3>
+  <div id="carouselDicas" class="carousel slide w-75 mx-auto mb-4" data-bs-ride="carousel">
+    <div class="carousel-inner text-center">
+      <div class="carousel-item active">
+        <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+          🧠 Informe o <strong>nome do cliente</strong> que está realizando o pedido para manter o histórico organizado.
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+          🧠 Adicione <strong>produtos</strong> à lista do pedido com o nome e quantidade desejada.
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+          🧠 O <strong>valor total</strong> é calculado automaticamente com base nos produtos.
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+          🧠 Selecione a <strong>forma de pagamento</strong>: Dinheiro, Pix, Cartão, etc.
+        </div>
+      </div>
+      <div class="carousel-item">
+        <div class="p-4 rounded-3" style="background-color: #D4E2EB;">
+          🧠 O sistema <strong>atualiza o estoque</strong> automaticamente após salvar o pedido.
+        </div>
+      </div>
+    </div>
+  
+    <!-- Setas -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselDicas" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselDicas" data-bs-slide="next">
+      <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+      <span class="visually-hidden">Próximo</span>
+    </button>
+  
+    <!-- Indicadores -->
+    <div class="carousel-indicators mt-3">
+      <button type="button" data-bs-target="#carouselDicas" data-bs-slide-to="0" class="active"></button>
+      <button type="button" data-bs-target="#carouselDicas" data-bs-slide-to="1"></button>
+      <button type="button" data-bs-target="#carouselDicas" data-bs-slide-to="2"></button>
+      <button type="button" data-bs-target="#carouselDicas" data-bs-slide-to="3"></button>
+      <button type="button" data-bs-target="#carouselDicas" data-bs-slide-to="4"></button>
+    </div>
+  </div>
+  </div>
+  
+
+
+<div class="container my-5 p-4 rounded" style="background-color: #E7ECEF;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="mb-4 text-center fw-bold" style="color: #274C77;">Listagem de Pedidos</h3>
+    <a href="{% url 'criar_pedido' %}" class="btn btn-sm" style="background-color: #274C77; color: white;"> ➕ Adicionar um Novo Pedido</a>
+  </div>
+
+  <div style="background-color: #D4E2EB; border-radius: 10px; padding: 10px;">
+  {% if pedidos %}
+    <table class="table table-hover table-bordered align-middle text-center mb-0">
+      <thead>
+        <tr>
+          <th style="background-color: #D4E2EB; color: #263238;">ID</th>
+          <th style="background-color: #D4E2EB; color: #263238;">Nome do Cliente</th>
+          <th style="background-color: #D4E2EB; color: #263238;">Valor da Compra</th>
+          <th style="background-color: #D4E2EB;color: #263238;">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for pedido in pedidos %}
+          <tr style="background-color: #A3CEF1;">
+            <td style="background-color: #D4E2EB">{{ pedido.id }}</td>
+            <td style="background-color: #D4E2EB">{{ pedido.nome_cliente }}</td>
+            <td style="background-color: #D4E2EB">R$ {{ pedido.valor_compra }}</td>
+            <td style="background-color: #D4E2EB">
+              <a href="{% url 'pedido_detalhe' pedido.id %}" class="btn btn-sm" style="background-color: #274C77; color: white;">Visualizar detalhes</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+    <div class="alert alert-warning text-center" role="alert" style="background-color: #A3CEF1; color: #274C77;">
+      Nenhum pedido encontrado.
+    </div>
+  {% endif %}
+</div>
+
+
+{% endblock %}

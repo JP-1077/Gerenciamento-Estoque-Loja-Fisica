@@ -1,0 +1,203 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+/* Estilização geral */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f4f6fa;
+    color: #333;
+    padding-bottom: 40px;
+}
+
+/* Cartões (cards) */
+.card {
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #ffffff;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabeçalho dos cards */
+.card-header {
+    font-weight: bold;
+    font-size: 1.1rem;
+    border-radius: 15px 15px 0 0;
+    padding: 12px 20px;
+}
+
+/* Lista interna */
+.list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 12px 20px;
+    transition: background-color 0.2s ease;
+}
+
+.list-group-item:last-child {
+    border-bottom: none;
+}
+
+.list-group-item:hover {
+    background-color: #f9f9f9;
+}
+
+/* Badge estilizado */
+.badge {
+    padding: 0.5em 0.8em;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    transition: transform 0.2s ease;
+}
+
+.badge:hover {
+    transform: scale(1.05);
+}
+
+/* Título principal */
+h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-shadow: 1px 1px 2px #ddd;
+    animation: fadeInDown 1s ease;
+}
+
+/* Animação de entrada */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1.5rem;
+    }
+
+    .list-group-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .badge {
+        margin-top: 0.5rem;
+    }
+}
+</style>
+
+<div class="container my-4">
+    <h1 class="mb-4">📊 Dashboard</h1>
+
+    <!-- 🔔 Produtos com Estoque Baixo -->
+    <div class="card mb-4 border-danger">
+        <div class="card-header bg-danger text-white">
+            🔔 Produtos com Estoque Baixo
+        </div>
+        <div class="card-body">
+            {% if produtos_alerta %}
+                <ul class="list-group">
+                    {% for produto in produtos_alerta %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ produto.nome }}
+                            <span class="badge bg-warning text-dark">
+                                Estoque: {{ produto.quantidade }} (Min: {{ produto.estoque_minimo }})
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-success">✅ Todos os produtos estão com estoque adequado.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 📈 Produtos Mais Vendidos -->
+    <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+            📈 Top 5 Produtos Vendidos
+        </div>
+        <div class="card-body">
+            {% if produtos_mais_vendidos %}
+                <ul class="list-group">
+                    {% for produto in produtos_mais_vendidos %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ produto.nome }}
+                            <span class="badge bg-primary">
+                                Vendido: {{ produto.total_vendido }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Ainda não há vendas registradas.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 👥 Principais Clientes -->
+    <div class="card mb-4">
+        <div class="card-header bg-success text-white">
+            👥 Principais Clientes (por valor gasto)
+        </div>
+        <div class="card-body">
+            {% if principais_clientes %}
+                <ul class="list-group">
+                    {% for cliente in principais_clientes %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ cliente.nome_cliente }}
+                            <span class="badge bg-success">
+                                R$ {{ cliente.total_gasto|floatformat:2 }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Nenhum cliente com compras registradas ainda.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- 🗃️ Produtos em Estoque -->
+    <div class="card mb-4">
+        <div class="card-header bg-info text-white">
+            📦 Produtos Armazenados em Estoque
+        </div>
+        <div class="card-body">
+            {% if produtos_em_estoque %}
+                <ul class="list-group">
+                    {% for produto in produtos_em_estoque %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            {{ produto.nome }}
+                            <span class="badge bg-info text-dark">
+                                Quantidade: {{ produto.quantidade }}
+                            </span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p class="text-muted">Nenhum produto cadastrado em estoque.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

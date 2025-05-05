@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        gap: 1rem;
+    }
+
+    .form-group label {
+        width: 200px;
+        font-weight: bold;
+        color: #1b1b1b;
+        margin: 0;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+        flex: 1;
+        background-color: #D4E2EB;
+        border: none;
+        border-bottom: 2px solid white;
+        padding: 8px 4px;
+        width: 100%;
+        color: #1b1b1b;
+        outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+        border-bottom: 2px solid #274C77;
+        box-shadow: none;
+    }
+
+    .form-box {
+        background-color: #A8CCE7;
+        border-radius: 20px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+        overflow: hidden;
+    }
+
+    .form-image {
+        background-color: #2C4976;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        border-radius: 12px 0 0 12px;
+    }
+
+    .form-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .form-content {
+        flex: 2;
+        padding: 2rem;
+        background-color: #D4E2EB;
+        border-radius: 0 12px 12px 0;
+    }
+
+    .form-header {
+        background-color: #86ABC3;
+        color: white;
+        font-weight: bold;
+        padding: 0.5rem 1.5rem;
+        border-radius: 8px;
+        display: inline-block;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-custom {
+        background-color: #86ABC3;
+        color: white;
+        padding: 0.5rem 2rem;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+    }
+
+    .btn-custom i {
+        margin-right: 0.5rem;
+    }
+</style>
+
+    <div class="row justify-content-center px-4">
+        <div class="col-lg-10">
+            <div class="form-box">
+                <!-- Ilustração à esquerda -->
+                <div class="form-image">
+                    <img src="{% static 'img/forms.png' %}" alt="Ilustração Produto">
+                </div>
+
+                <!-- Formulário horizontal à direita -->
+                <div class="form-content">
+                    <div class="text-center">
+                        <span class="form-header">Formulário de Produtos</span>
+                    </div>
+
+                    <form method="post">
+                        {% csrf_token %}
+
+                        {% for field in form %}
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                            </div>
+                        {% endfor %}
+
+                        <div class="d-flex justify-content-between mt-4">
+                            <a href="{% url 'produto_lista' %}" class="btn-custom d-flex align-items-center">
+                                <img src="{% static 'img/desfazer.png' %}" alt="Voltar" style="width: 20px; height: 20px; margin-right: 15px;">
+                                VOLTAR
+                            </a>
+                            
+                            <button type="submit" class="btn-custom d-flex align-items-center justify-content-center">
+                                <img src="{% static 'img/disco.png' %}" alt="Voltar" style="width: 20px; height: 20px; margin-right: 15px;">SALVAR
+                            </button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
