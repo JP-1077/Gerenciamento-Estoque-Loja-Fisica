@@ -125,6 +125,9 @@ Nesta seção, será disponibilizado um vídeo demonstrando as principais telas 
 
 * Visualização de gráficos no dashboard.
 
+![Demonstração do sistema](docs/sistema.gif)
+
+
 # 
 
 ## **✔ 6. Conclusão**
