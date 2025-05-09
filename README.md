@@ -111,7 +111,23 @@ O sistema foi projetado com foco na eficiência do controle de estoque e na expe
 
 * Filtro por categoria em listagens e relatórios.
 
-# **✔ 6. Conclusão**
+# 
+
+## **✍🏽 5. Demonstração**
+
+Nesta seção, será disponibilizado um vídeo demonstrando as principais telas e funcionalidades do sistema em execução, incluindo:
+
+* Cadastro de produtos e categorias;
+
+* Registro de entradas e saídas de estoque;
+
+* Autenticação de usuários;
+
+* Visualização de gráficos no dashboard.
+
+# 
+
+## **✔ 6. Conclusão**
 
 O Sistema de Gerenciamento de Estoque foi desenvolvido com o objetivo de oferecer uma solução simples, eficiente e segura para empresas que desejam controlar seu inventário de forma organizada. Com a implementação de recursos como autenticação, movimentações de estoque, relatórios e visualizações, o sistema proporciona uma base sólida para:
 
