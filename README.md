@@ -1,8 +1,5 @@
 # **📦 Sistema de Gerenciamento de Estoque**
 
-Este projeto tem como objetivo desenvolver um sistema para realizar o controle de estoque de produtos, permitindo gerenciar inventário, registrar pedidos, acompanhar vendas e obter relatórios completos de forma simples e eficiente.
-
-# 
 
 ## **🎯 1. Objetivo do Projeto**
 
@@ -72,46 +69,6 @@ A seguir estão as principais tecnologias, frameworks e bibliotecas utilizadas n
 | Documentação   | Markdown     
 
 #
-
-## **🔧 4. Funcionalidades do Sistema**
-
-O sistema foi projetado com foco na eficiência do controle de estoque e na experiência do usuário. As principais funcionalidades implementadas são:        
-
-🗂️ Cadastro de Produtos
-
-* Inserção de novos produtos no sistema com nome, descrição, categoria, preço e quantidade inicial.
-
-* Edição e exclusão de produtos existentes.
-
-* Associação com uma categoria para melhor organização.
-
-📦 Controle de Estoque
-
-* Registro de movimentações de entrada e saída.
-
-* Atualização automática do saldo de produtos no estoque.
-
-* Validação para evitar saídas com quantidade superior ao estoque disponível.
-
-* Visualização de histórico de movimentações.
-  
-📊 Dashboard e Relatórios
-
-* Visualização de métricas como: produtos mais movimentados, estoque mínimo, entradas/saídas por período.
-
-* Gráficos interativos com uso de Chart.js.
-
-* Filtros por categoria, produto e data.
-
-📁 Organização por Categorias
-
-* Cadastro de categorias.
-
-* Associação de produtos por categoria.
-
-* Filtro por categoria em listagens e relatórios.
-
-# 
 
 ## **✍🏽 5. Demonstração**
 
